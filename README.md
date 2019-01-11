@@ -1,2 +1,2 @@
 # docker-node-app
-Node.js on Docker
+Simple Node.js app on Docker with docker -env
