@@ -11,4 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +'%Y-%m-%d')
+      env:
+        IMAGE_NAME: my-image-name
+        TAG: $(date +'%Y-%m-%d')
+        TAG2: test2
+        TAG3: 'test3'
+      run: docker build . --file Dockerfile --tag $MATRIX_CONTEXT:$TAG --tag $MATRIX_CONTEXT:$TAG2 --tag $MATRIX_CONTEXT:$TAG3
