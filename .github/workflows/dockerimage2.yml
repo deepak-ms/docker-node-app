@@ -13,7 +13,6 @@ jobs:
     - name: Build the Docker image
       env:
         IMAGE_NAME: my-image-name
-        TAG: $(date +'%Y-%m-%d')
         TAG2: test2
         TAG3: 'test3'
-      run: docker build . --file Dockerfile --tag $MATRIX_CONTEXT:$TAG --tag $MATRIX_CONTEXT:$TAG2 --tag $MATRIX_CONTEXT:$TAG3
+      run: docker build . --file Dockerfile --tag $MATRIX_CONTEXT:$(date +'%Y-%m-%d') --tag $MATRIX_CONTEXT:$TAG2 --tag $MATRIX_CONTEXT:$TAG3
